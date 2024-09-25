@@ -1,7 +1,7 @@
 # Kapitel 1
 ## Python Grundlagen
 
-<iframe src="../../static/chapter1.html" style="width: 100%; height: 600px;"></iframe>
+<iframe src="../../static/chapter.html" style="width: 100%; height: 600px;"></iframe>
 
 ## Aufgabe
 
