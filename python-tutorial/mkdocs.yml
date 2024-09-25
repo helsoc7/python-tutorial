@@ -34,5 +34,7 @@ theme:
   hljs_languages:
     - yaml
     - django
+extra_css:
+  - extra.css
   
 

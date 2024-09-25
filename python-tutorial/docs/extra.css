@@ -1,0 +1,13 @@
+/* Style the note box */
+.note-box {
+    padding: 15px;
+    border-left: 4px solid #2196F3;
+    background-color: #f1f1f133;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Add some custom styling for bold note text */
+.note-box strong {
+    color: #2196F3;
+}
