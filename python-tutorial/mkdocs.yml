@@ -2,9 +2,9 @@ site_name: Python Tutorial
 site_url: https://helsoc7.github.io/python-tutorial/
 nav:
   - Home: index.md
-  - Kapitel 1:
-    - Theorie: chapter1/intro.md
-    - Aufgaben: chapter1/exercise1.md
-  - Kapitel 2:
-    - Theorie: chapter2/intro.md
-    - Aufgaben: chapter2/exercise2.md
+  - Chapter 1:
+    - Introduction: chapter1/intro1.md
+    - Exercise: chapter1/exercise1.md
+  - Chapter 2:
+      - Introduction: chapter2/intro2.md
+      - Exercise: chapter2/exercise2.md
