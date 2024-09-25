@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: "1.5 Python Einführung"
-footer: "Seite: $currentPage"
+footer: "![width:200px](https://techstarter.de/wp-content/uploads/2024/04/Techstarter-Logo_white-background.png)"
 ---
 
 # Einführung in Python
@@ -79,3 +79,50 @@ name = "Helen"
 age = 25
 height = 1.75
 is_student = True
+```
+
+---
+
+# Installation VSCode und Python
+
+1. Installiere VSCode: `choco install vscode`
+2. Installiere Python: `choco install python`
+3. Überprüfe Installation: `python --version`
+4. Code Beispiel in VSCode:
+```python
+print("Hello World!")
+```
+
+---
+
+# Beispielaufgabe
+
+1. Definiere zwei Ganzzahlen `a = 10` und `b = 3`
+2. Berechne und gib Summe, Differenz, Produkt, etc. aus
+3. Definiere eine Fließkommazahl `c = 4.5` und einen String `d = "Python"`
+4. Kombiniere `c` und `d` und gib das Ergebnis aus
+
+---
+
+# input-Befehl
+
+- Erfasst Benutzereingaben in Python
+- Beispiel:
+```python
+name = input("Wie heißt du?")
+print(f"Hallo, {name}!")
+```
+
+---
+
+# Zusammenfassung
+
+- Python ist eine vielseitige Programmiersprache
+- Starke Gemeinschaft und umfangreiche Bibliotheken
+- Geeignet für viele Anwendungsbereiche wie Webentwicklung und Datenanalyse
+
+---
+
+# Ende der Präsentation
+
+Danke für die Aufmerksamkeit!
