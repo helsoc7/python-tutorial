@@ -1,0 +1,10 @@
+site_name: Python Tutorial
+site_url: https://helsoc7.github.io/python-tutorial/
+nav:
+  - Home: index.md
+  - Week 1:
+    - Introduction: chapter1/intro.md
+    - Exercises: chapter1/exercise1.md
+  - Week 2:
+    - Loops: chapter2/index.md
+    - Exercises: chapter2/exercise2.md
