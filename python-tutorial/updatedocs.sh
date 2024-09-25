@@ -1,5 +1,5 @@
 #!/bin/bash
 git add .
 git commit -m "Update docs"
-git push origin main
+git push
 mkdocs gh-deploy
