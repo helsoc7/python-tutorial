@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <!-- CodeMirror Python Mode -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+    <style>
+      /* Initially hide the next section */
+      #next-section {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <label for="code"><strong>Code-Eingabe:</strong></label>
+    <textarea id="code" style="width: 100%;" rows="4" placeholder="Gib hier Python-Code ein..."></textarea>
+    <br />
+    <button onclick="evaluatePython()">Ausführen</button>
+    <br /><br />
+    <label for="output"><strong>Ausgabe:</strong></label>
+    <textarea id="output" style="width: 100%;" rows="6" disabled></textarea>
+
+    <br />
+    <div id="next-section">
+      <h2>Herzlichen Glückwunsch! Sie haben die richtige Antwort gegeben.</h2>
+      <p>Sie können nun mit dem nächsten Abschnitt fortfahren.</p>
+    </div>
+
+    <script>
+      const output = document.getElementById("output");
+      let editor;
+
+      // Init CodeMirror for better code editing experience
+      window.onload = function() {
+        editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+          lineNumbers: true,
+          mode: "python",
+          indentUnit: 4,
+          tabSize: 4,
+          smartIndent: true,
+          matchBrackets: true
+        });
+      };
+
+      // Init Pyodide
+      async function main() {
+        let pyodide = await loadPyodide();
+        return pyodide;
+      }
+
+      let pyodideReadyPromise = main();
+
+      async function evaluatePython() {
+        let pyodide = await pyodideReadyPromise;
+        try {
+          let codeValue = editor.getValue(); // Get the value from CodeMirror editor
+          let result = await pyodide.runPythonAsync(`
+import sys
+from io import StringIO
+
+# Capture print outputs
+sys.stdout = StringIO()
+
+# Execute the full code block (exec handles multi-line code)
+exec(\"\"\"${codeValue}\"\"\")
+
+# Get the captured stdout
+sys.stdout.getvalue()
+          `);
+          output.value = result;
+
+          // Call validation function
+          validateOutput(result);
+        } catch (err) {
+          output.value = err;
+        }
+      }
+
+      // Function to validate the output and unlock the next section
+      function validateOutput(result) {
+        const expectedOutput = "10\n"; // Example of expected output
+        if (result === expectedOutput) {
+          document.getElementById("next-section").style.display = "block"; // Show the next section
+        } else {
+          alert("Falsche Ausgabe! Bitte versuche es erneut.");
+        }
+      }
+    </script>
+  </body>
+</html>
