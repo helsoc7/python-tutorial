@@ -1,4 +1,3 @@
-
 ---
 marp: true
 theme: default
@@ -6,7 +5,6 @@ paginate: true
 header: "Datenstrukturen in Python"
 footer: "![width:200px](https://techstarter.de/wp-content/uploads/2024/04/Techstarter-Logo_white-background.png)"
 ---
-
 # Was sind Datenstrukturen?
 
 - Datenstrukturen sind spezielle Formate, die verwendet werden, um Daten zu organisieren, zu verwalten und zu speichern.

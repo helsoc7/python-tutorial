@@ -1,0 +1,1 @@
+<iframe src="../../static/pyodide/pyodide.html" style="width: 100%; height: 700px;"></iframe>

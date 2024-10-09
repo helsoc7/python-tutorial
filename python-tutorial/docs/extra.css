@@ -11,3 +11,20 @@
 .note-box strong {
     color: #2196F3;
 }
+
+/* Standard (Light Mode) */
+iframe {
+    border: none;
+    width: 100%;
+    height: 350px;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+
+iframe:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Leichtes Hover-Effekt */
+}
