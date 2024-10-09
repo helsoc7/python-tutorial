@@ -16,13 +16,17 @@
       #next-section {
         display: none;
       }
+      #bad-answer {
+        display: none;
+      }
     </style>
   </head>
 
   <body>
+    <label for="task"><strong>Aufgabe:</strong></label>
+    <p id="task"></p>
     
     <label for="code"><strong>Code-Eingabe:</strong></label>
-    <p>Es soll die Zahl 10 in der Konsole ausgegeben werden</p>
     <textarea id="code" style="width: 100%;" rows="4" placeholder="Gib hier Python-Code ein..."></textarea>
     <br />
     <button onclick="evaluatePython()">Ausführen</button>
@@ -35,10 +39,24 @@
       <h2>Herzlichen Glückwunsch! Sie haben die richtige Antwort gegeben.</h2>
       <p>Sie können nun mit dem nächsten Abschnitt fortfahren.</p>
     </div>
+    <div id="bad-answer">
+      <h2>Achtung! Du hast die falsche Antwort eingegeben. Versuche es nochmal</h2>
+    </div>
 
     <script>
       const output = document.getElementById("output");
       let editor;
+
+      // Function to get URL parameters
+      function getURLParameter(name) {
+        return new URLSearchParams(window.location.search).get(name);
+      }
+
+      // Set task and expected output from URL parameters
+      const taskDescription = getURLParameter("task");
+      const expectedOutput = getURLParameter("expected");
+
+      document.getElementById("task").innerText = taskDescription || "Keine Aufgabe angegeben.";
 
       // Init CodeMirror for better code editing experience
       window.onload = function() {
@@ -88,11 +106,10 @@ sys.stdout.getvalue()
 
       // Function to validate the output and unlock the next section
       function validateOutput(result) {
-        const expectedOutput = "10\n"; // Example of expected output
-        if (result === expectedOutput) {
+        if (result === (expectedOutput + "\n")) {
           document.getElementById("next-section").style.display = "block"; // Show the next section
         } else {
-          alert("Falsche Ausgabe! Bitte versuche es erneut.");
+          document.getElementById("bad-answer").style.display = "block"; 
         }
       }
     </script>
